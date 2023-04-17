@@ -1,12 +1,13 @@
 <section id="mainSection">
     <div id="banner">
         <div id="itemOfBanner">
-            <span id="textOfBanner">에디터 <br/> 토이 프로젝트</span>
+            <span id="textOfBanner">지란지교 주니어 토이 프로젝트 </br> : 4월 웹 에디터 개발 과제</span>
             <img src="/assets/rocket.png" id="imgOfBanner" alt="배너 로켓 이미지" loading="lazy"/>
         </div>
     </div>
     <span id="title" onclick="Post()">
-        에디터와 함께 <span id="strongTitle">자유로운 글</span>을 작성해보세요
+        <img src='/assets/mark.png' id="mark" alt="마크 이미지"/>
+        토이 에디터와 함께 <span id="strongTitle">자유로운 글</span>을 작성해보세요
     </span>
     <article id="list">
         <% @posts.each do |post| %>
