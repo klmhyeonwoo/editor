@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>제품개발팀 에디터</title>
+    <link href="stylesheet" src='/assets/main.css'/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header id="header">
+      <img src="/assets/logo.png" id="headerImg" alt="헤더 로고 이미지"/>
+    </header>
+    <%= yield %>
+    <script src="/assets/main.js"></script>
+  </body>
+</html>

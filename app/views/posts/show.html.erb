@@ -1,0 +1,14 @@
+<section id="showBoard">
+    <div id="articleOfDescription">
+        <span id="placeOfTitle"> 제목 </span>
+        <div id="placeOfParams"> <%= @post.title %> </div>
+    </div>
+    <div id="articleOfDescription">
+        <span id="placeOfTitle"> 소제목 </span>
+        <div id="placeOfParams"> <%= @post.sub_title %> </div>
+    </div>
+    <div id="placeOfContent"> <%= @post.content %> </div>
+    <div id="placeOfButton">
+        <div id="button" onclick="document.location.href=`/posts/index`"> 뒤로가기 </div>
+    </div>
+</section>

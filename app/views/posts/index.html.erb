@@ -1,0 +1,34 @@
+<section id="mainSection">
+    <div id="banner">
+        <div id="itemOfBanner">
+            <span id="textOfBanner">에디터 <br/> 토이 프로젝트</span>
+            <img src="/assets/rocket.png" id="imgOfBanner" alt="배너 로켓 이미지" loading="lazy"/>
+        </div>
+    </div>
+    <span id="title" onclick="Post()">
+        에디터와 함께 <span id="strongTitle">자유로운 글</span>을 작성해보세요
+    </span>
+    <article id="list">
+        <% @posts.each do |post| %>
+                <div id="itemOfList" onclick="Show(<%= post.id %>)">
+                    <div>
+                        <span id="titleOfPost">
+                            <%= post.title %>
+                        </span>
+                        <div id="itemOfUtil">
+                            <span id="subTitle">                
+                                <%= post.sub_title %>
+                            </span>
+                            <span id="util" onclick="Edit(<%= post.id %>)">
+                                수정
+                            </span>
+                            <span id="util" onclick="Delete(<%= post.id %>)">
+                                삭제
+                            </span>
+                        </div>
+                    </div>
+                </div>
+        <% end %>
+    <article>
+</section>
+

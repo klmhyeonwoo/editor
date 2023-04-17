@@ -1,0 +1,18 @@
+<section id="showBoard">
+<form action='/posts/create' method="post" >
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div id="articleOfDescription">
+            <span id="placeOfTitle"> 제목 </span>
+            <input id="placeOfParams" name="post_title" placehorder="제목을 입력해주세요"/>
+        </div>
+        <div id="articleOfDescription">
+            <span id="placeOfTitle"> 소제목 </span>
+            <input id="placeOfParams" name="post_subTitle" placehorder="소제목을 입력해주세요"/>
+        </div>
+        <textarea name="post_content" placehorder="내용을 입력해주세요"  id="placeOfContent" contenteditable="true"></textarea>
+        <div id="placeOfButton">
+            <input id="button" type="submit"  value="글 발행하기">
+        </div>
+    </form>
+
+</section>

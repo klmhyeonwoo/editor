@@ -1,0 +1,20 @@
+
+
+<section id="showBoard">
+    <form action='/posts/update/<%= @post.id %>' method="post" >
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div id="articleOfDescription">
+            <span id="placeOfTitle"> 제목 </span>
+            <input id="placeOfParams" name="post_title" value="<%=@post.title%>"/>
+        </div>
+        <div id="articleOfDescription">
+            <span id="placeOfTitle"> 소제목 </span>
+            <input id="placeOfParams" name="post_subTitle" value="<%=@post.sub_title%>"/>
+        </div>
+        <textarea name="post_content" placehorder="내용을 입력해주세요"  id="placeOfContent" contenteditable="true"><%=@post.content%></textarea>
+        <div id="placeOfButton">
+            <input id="button" type="submit"  value="글 수정하기">
+        </div>
+    </form>
+
+</section>
