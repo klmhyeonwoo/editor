@@ -69,6 +69,10 @@
     cursor: pointer;
 }
 
+#arrow {
+    cursor: pointer;
+}
+
 #toggleBox {
     display: flex;
     width: 100%;
@@ -78,6 +82,7 @@
     padding-top: 0.1em;
     padding-bottom: 0.1em;
     transition: 0.4s all;
+    border: none;
 }
 
 #toggleBox:hover {
@@ -92,7 +97,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: none;
+    border: 1px solid #ddd;
     border-radius: 0.7em;
     box-shadow: 0.5em 0.5em 0.5em 0.5em rgba(230, 232,234, 0.5);
     background-color: white;
@@ -162,4 +167,9 @@
     align-items: center;
     margin-left: auto;
     margin-right: 1.5em;
+}
+
+#utilOfToolBar {
+    background-color: transparent;
+    border: none;
 }

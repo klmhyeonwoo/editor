@@ -56,6 +56,9 @@ const activateButton = (event) => {
 };
 
 const fontToggleOn = () => {
+  // let selected = window.getSelection().getRangeAt(0);
+  // console.log(selected);
+
   event.stopPropagation();
 
   const list = document.getElementById("selectbox-option");
@@ -66,6 +69,8 @@ const fontToggleOn = () => {
   } else {
     list.style.display = "flex";
   }
+  
+  return false;
 };
 
 const globalToggleOff = () => {
@@ -78,6 +83,10 @@ const globalToggleOff = () => {
 
 /** 서식을 지정할 요소들을 command 매개변수로 담아 execCommand로 지정을 해줍니다. */
 const ChangeInhabitStyle = (command, variableState, variableValue) => {
+
+  let selected = window.getSelection().getRangeAt(0);
+  console.log(selected);
+
   if (variableState === false) {
     document.execCommand(command);
     console.log(command, variableState);

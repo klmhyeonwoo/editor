@@ -10,11 +10,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body onclick="globalToggleOff()">
     <header id="header">
       <img src="/assets/logo.png" id="headerImg" alt="헤더 로고 이미지"/>
     </header>
     <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="/assets/main.js"></script>
   </body>
 </html>
