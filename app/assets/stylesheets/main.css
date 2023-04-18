@@ -33,10 +33,21 @@ body {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
+select {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
 input {
     font-size: 16px;
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     outline-color: #FF7827;
+}
+
+button {
+    font-size: 16px;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 textarea {
@@ -55,6 +66,23 @@ form {
 textarea:focus {
     border: solid;
     outline-color: #FF7827;
+}
+
+div:focus-visible {
+    box-shadow: inset 0 0 0 0.13em #FF7827;
+    outline: none;
+    transition: 0.4s all;
+}
+
+input:hover, #placeOfContent:hover {
+    transition: 0.4s all;
+    box-shadow: inset 0 0 0 0.13em #FFC39F;
+}
+
+input:focus {
+    box-shadow: inset 0 0 0 0.13em #FF7827;
+    outline: none;
+    transition: 0.4s all;
 }
 
 a {
@@ -87,7 +115,7 @@ a:focus {
     color: #191f28;
     transition: 0.4s all;
     cursor: pointer;
-    animation: fadeIn 3s infinite;
+    animation: fadeIn 4s infinite;
 }
 
 #strongTitle {
@@ -211,6 +239,7 @@ a:focus {
     flex-direction: column;
     row-gap: 1em;
     padding-left: 3em;
+    width: 62.5em;
 }
 
 #articleOfDescription {
@@ -245,6 +274,8 @@ a:focus {
     border-width: 0.0925em; */
     background-color: #F9FAFB;
     color: #191f28;
+    line-height: 1.6em;
+    overflow: auto;
 }
 
 #placeOfButton {

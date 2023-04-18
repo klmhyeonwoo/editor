@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "toolBar", "data-turbo-track": "reload" %>
+
 <section id="showBoard">
 <form action='/posts/create' method="post" >
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -9,10 +11,88 @@
             <span id="placeOfTitle"> 소제목 </span>
             <input id="placeOfParams" name="post_subTitle" placehorder="소제목을 입력해주세요"/>
         </div>
-        <textarea name="post_content" placehorder="내용을 입력해주세요"  id="placeOfContent" contenteditable="true"></textarea>
+        <div id="toolBar">
+            <svg id="iconOfToolBar" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M11.2405 7.75953C10.3363 6.97263 9.16325 6.48876 7.86804 6.48876C5.59531 6.48876 3.67449 7.9697 3 10.0176L4.15347 10.3988C4.66667 8.83969 6.13294 7.71066 7.86804 7.71066C8.82111 7.71066 9.69111 8.06256 10.3705 8.62952L8.60117 10.3988H13V6L11.2405 7.75953Z" fill="black"/>
+            </svg>
+            <svg id="iconOfToolBar" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M8.12946 6.48852C6.83488 6.48852 5.66243 6.97215 4.75867 7.75867L3 6V10.3967H7.39668L5.62824 8.62824C6.30728 8.06155 7.17196 7.70982 8.12946 7.70982C9.85882 7.70982 11.3293 8.8383 11.8422 10.3967L13 10.0156C12.321 7.96873 10.4011 6.48852 8.12946 6.48852Z" fill="black"/>
+            </svg>
+            <hr id="splitLine"/>
+            <div id="customFontSize" width="50px" data-role="selectbox">
+                <div id="toggleBox">
+                    <div type="button" id="toggle-btn" onclick="fontToggleOn()"> 본문2 </div>
+                    <svg width="30" height="30" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.93208 11.5137L16.0843 17.6525L22.2366 11.5137L24.1265 13.4036L16.0843 21.4457L8.04218 13.4036L9.93208 11.5137Z" fill="#333333"/>
+                    </svg>
+                </div>
+                <div id="selectbox-option">
+                    <div id="selectboxTop"></div>
+                    <button type="button" id="option-btn">제목1</button>
+                    <button type="button" id="option-btn">제목2</button>
+                    <button type="button" id="option-btn">제목3</button>
+                    <button type="button" id="option-btn">본문1</button>
+                    <button type="button" id="option-btn">본문2</button>
+                    <button type="button" id="option-btn">본문3</button>
+                </div>
+            </div>
+            <hr id="splitLine"/>
+            <span onclick="document.execCommand(`bold`)">
+                <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="ChangeInhabitStyle(`bold`, false)">
+                    <path d="M10.7333 8.67206C11.38 8.21105 11.8333 7.45416 11.8333 6.75232C11.8333 5.19726 10.6667 4 9.16667 4H5V13.6331H9.69333C11.0867 13.6331 12.1667 12.4634 12.1667 11.0253C12.1667 9.97941 11.5933 9.08491 10.7333 8.67206ZM7 5.7202H9C9.55333 5.7202 10 6.18121 10 6.75232C10 7.32343 9.55333 7.78444 9 7.78444H7V5.7202ZM9.33333 11.9129H7V9.84868H9.33333C9.88667 9.84868 10.3333 10.3097 10.3333 10.8808C10.3333 11.4519 9.88667 11.9129 9.33333 11.9129Z" fill="black"/>
+                </svg>
+            </span>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M6.66667 4V6.06424H8.14L5.86 11.5689H4V13.6331H9.33333V11.5689H7.86L10.14 6.06424H12V4H6.66667Z" fill="black"/>
+            </svg>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M7.99999 11.6973C10.2067 11.6973 12 9.8464 12 7.56886V3.6124H10.3333V7.56886C10.3333 8.89685 9.28666 9.97714 7.99999 9.97714C6.71333 9.97714 5.66666 8.89685 5.66666 7.56886V3.6124H3.99999V7.56886C3.99999 9.8464 5.79333 11.6973 7.99999 11.6973ZM3.33333 13.0735V14.4497H12.6667V13.0735H3.33333Z" fill="black"/>
+            </svg>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)"> 
+                <path d="M4.5667 5.90365C4.5667 4.03895 6.30004 3.09628 8.16004 3.09628C9.25337 3.09628 10.16 3.43344 10.76 3.97703C11.2734 4.42428 11.7334 5.1674 11.7334 6.2064H9.7267C9.7267 5.9931 9.69337 5.80044 9.6267 5.62154C9.43337 5.02979 8.8267 4.74079 8.1267 4.74079C6.8867 4.74079 6.5667 5.44264 6.5667 5.91053C6.5667 6.24081 6.73337 6.51604 7.06004 6.74311C7.31337 6.91513 7.57337 7.07339 8.00004 7.22476H4.9267C4.7867 6.99082 4.5667 6.61237 4.5667 5.90365ZM14 9.289V7.91284H2.00004V9.289H8.41337C9.18004 9.59864 9.72004 9.80506 9.72004 10.6445C9.72004 11.3326 9.18004 11.7936 8.20004 11.7936C7.17337 11.7936 6.2467 11.4221 6.2467 10.0665H4.2667C4.2667 10.445 4.32004 10.8441 4.4267 11.1537C4.9667 12.7294 6.62004 13.4244 8.2067 13.4244C9.72004 13.4244 11.74 12.812 11.74 10.6376C11.74 10.4312 11.7334 9.83947 11.42 9.30276H14V9.289Z" fill="black"/>
+            </svg>
+            <hr id="splitLine"/>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M4.00002 4.16064H13V5.5368H4.00002V4.16064ZM4.00002 6.91296H11V8.28912H4.00002V6.91296Z" fill="#292929"/>
+                <path d="M4 9.3212H13.1815V10.5057H4V9.3212ZM4 11.6903H11V12.8748H4V11.6903Z" fill="#292929"/>
+            </svg>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M12 4.16064H2.99998V5.5368H12V4.16064ZM12 6.91296H2.99998V8.28912H12V6.91296Z" fill="#292929"/>
+                <path d="M12.1815 9.3212H3.00002V10.5057H12.1815V9.3212ZM12.1815 11.6903H3.00002V12.8748H12.1815V11.6903Z" fill="#292929"/>
+            </svg>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M12 4.16064H2.99998V5.5368H12V4.16064ZM12 6.91296H4.99998V8.28912H12V6.91296Z" fill="#292929"/>
+                <path d="M12 9.3212H2.81852V10.5057H12V9.3212ZM12 11.6903H5V12.8748H12V11.6903Z" fill="#292929"/>
+            </svg>
+            <hr id="splitLine"/>
+            <svg id="iconOfToolBar" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M9 2H5C4.45 2 4.005 2.495 4.005 3.1L4 11.9C4 12.505 4.445 13 4.995 13H11C11.55 13 12 12.505 12 11.9V5.3L9 2ZM5 11.9V3.1H8.5V5.85H11V11.9H5Z" fill="black"/>
+            </svg>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M10.9375 5.27527L7.9125 3.4701C7.6595 3.31683 7.3405 3.31683 7.0875 3.4701L4.0625 5.27527C3.8095 5.42854 3.65 5.7067 3.65 6.01324V9.61792C3.65 9.92446 3.8095 10.2026 4.0625 10.3559L7.0875 12.1611C7.3405 12.3143 7.6595 12.3143 7.9125 12.1611L10.9375 10.3559C11.1905 10.2026 11.35 9.92446 11.35 9.61792V6.01324C11.35 5.7067 11.1905 5.42854 10.9375 5.27527ZM4.75 9.45329V6.83068L6.95 8.14766V10.7646L4.75 9.45329ZM7.5 7.1656L5.3 5.84862L7.5 4.53731L9.7 5.84862L7.5 7.1656ZM8.05 10.7646V8.14766L10.25 6.83068V9.45329L8.05 10.7646ZM4.75 2.09634H2.825C2.3685 2.09634 2 2.47668 2 2.94784V4.93467H3.1V3.23168H4.75V2.09634ZM10.25 2.09634H12.175C12.6315 2.09634 13 2.47668 13 2.94784V4.93467H11.9V3.23168H10.25V2.09634ZM4.75 13.4497H2.825C2.3685 13.4497 2 13.0693 2 12.5982V10.6113H3.1V12.3143H4.75V13.4497ZM10.25 13.4497H12.175C12.6315 13.4497 13 13.0693 13 12.5982V10.6113H11.9V12.3143H10.25V13.4497Z" fill="black"/>
+            </svg>
+            <svg id="iconOfToolBar" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="activateButton(event)">
+                <path d="M10.3684 2.09634H4.05263C3.47368 2.09634 3 2.5608 3 3.12846V10.3533H4.05263V3.12846H10.3684V2.09634ZM11.9474 4.16058H6.15789C5.57895 4.16058 5.10526 4.62504 5.10526 5.1927V12.4175C5.10526 12.9852 5.57895 13.4497 6.15789 13.4497H11.9474C12.5263 13.4497 13 12.9852 13 12.4175V5.1927C13 4.62504 12.5263 4.16058 11.9474 4.16058ZM11.9474 12.4175H6.15789V5.1927H11.9474V12.4175Z" fill="black"/>
+            </svg>
+        </div>
+        <div contenteditable="true" oninput="CurrentWord()" name="post_content" class="editorTextArticle" id="placeOfContent" ></div>
+        <%# <div id="placeOfContent" class="editorHTMLArticle">
+            HTML 영역으로 변경했을 때의 Article
+        </div> %>
+        <div id="modeSection">
+            <span id="mode">편집 모드</span>
+            <span id="mode">HTML 모드</span>
+            <span id="mode">미리보기</span>
+            <div id="wordNumSection">
+                <span id="wordLength">현재 글자 수 :</span>
+                <span id="currentWordNum"></span>
+            </div>
+        </div>
         <div id="placeOfButton">
             <input id="button" type="submit"  value="글 발행하기">
         </div>
+        <button onclick="document.execCommand(`bold`)">
+</button>
     </form>
-
 </section>
+<script src="/assets/toolBar.js"></script>
